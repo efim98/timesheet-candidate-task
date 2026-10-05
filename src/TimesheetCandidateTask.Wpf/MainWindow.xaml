@@ -54,18 +54,18 @@
               CanUserAddRows="False"
               CanUserDeleteRows="False"
               CanUserResizeRows="False"
-              IsReadOnly="False"
+              IsReadOnly="{Binding AreCommentsReadOnly}"
               ItemsSource="{Binding Lines}"
               RowHeaderWidth="0">
       <DataGrid.Columns>
         <DataGridTextColumn Width="170" Binding="{Binding EmployeeName}" Header="Сотрудник" IsReadOnly="True" />
-        <DataGridTextColumn Width="80" Binding="{Binding FirstDayHours}" Header="01.01, часы" />
+        <DataGridTextColumn Width="80" Binding="{Binding FirstDayHours, StringFormat={}{0:0.##}}" IsReadOnly="True" Header="01.01, часы" />
         <DataGridTextColumn Width="190" Binding="{Binding FirstDayComment, UpdateSourceTrigger=PropertyChanged}" Header="01.01, комментарий" />
-        <DataGridTextColumn Width="80" Binding="{Binding SecondDayHours}" Header="02.01, часы" />
+        <DataGridTextColumn Width="80" Binding="{Binding SecondDayHours, StringFormat={}{0:0.##}}" IsReadOnly="True" Header="02.01, часы" />
         <DataGridTextColumn Width="190" Binding="{Binding SecondDayComment, UpdateSourceTrigger=PropertyChanged}" Header="02.01, комментарий" />
-        <DataGridTextColumn Width="95" Binding="{Binding WorkedHours}" Header="Рабочие" IsReadOnly="True" />
-        <DataGridTextColumn Width="110" Binding="{Binding HolidayHours}" Header="Праздничные" IsReadOnly="True" />
-        <DataGridTextColumn Width="80" Binding="{Binding TotalHours}" Header="Итого" IsReadOnly="True" />
+        <DataGridTextColumn Width="95" Binding="{Binding WorkedHours, StringFormat={}{0:0.##}}" Header="Рабочие" IsReadOnly="True" />
+        <DataGridTextColumn Width="110" Binding="{Binding HolidayHours, StringFormat={}{0:0.##}}" Header="Праздничные" IsReadOnly="True" />
+        <DataGridTextColumn Width="80" Binding="{Binding TotalHours, StringFormat={}{0:0.##}}" Header="Итого" IsReadOnly="True" />
       </DataGrid.Columns>
     </DataGrid>
 
@@ -76,7 +76,7 @@
       </Grid.ColumnDefinitions>
       <TextBlock VerticalAlignment="Center" Foreground="DimGray" Text="{Binding Message}" TextWrapping="Wrap" />
       <StackPanel Grid.Column="1" Orientation="Horizontal">
-        <TextBlock Margin="0,0,16,0" VerticalAlignment="Center" FontWeight="SemiBold" Text="{Binding OverallTotal, StringFormat=Итого по табелю: {0}}" />
+        <TextBlock Margin="0,0,16,0" VerticalAlignment="Center" FontWeight="SemiBold" Text="{Binding OverallTotal, StringFormat=Итого по табелю: {0:0.##}}" />
         <Button Padding="14,6" Command="{Binding ApproveCommand}" Content="Утвердить" />
       </StackPanel>
     </Grid>

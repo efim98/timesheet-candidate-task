@@ -1,6 +1,6 @@
-using TimesheetCandidateTask.Api.Domain;
+using TimeSheetCandidateTask.Domain.Models;
 
-namespace TimesheetCandidateTask.Api.Contracts;
+namespace TimesheetCandidateTask.Shared.Contracts;
 
 public sealed record SaveTimesheetRequest(Guid RetailId, DateTime PeriodStart, TimesheetStatus Status, IReadOnlyCollection<SaveTimesheetLineRequest> Lines);
 public sealed record SaveTimesheetLineRequest(Guid EmployeeId, Guid PositionId, EmploymentType EmploymentType, bool IsNight, IReadOnlyCollection<SaveTimesheetDayRequest> Days);

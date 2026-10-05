@@ -1,4 +1,4 @@
-namespace TimesheetCandidateTask.Api.Domain;
+namespace TimeSheetCandidateTask.Domain.Models;
 
 public sealed class Timesheet
 {

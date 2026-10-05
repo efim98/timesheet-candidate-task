@@ -1,14 +1,14 @@
-using TimesheetCandidateTask.Api.Contracts;
-using TimesheetCandidateTask.Api.Domain;
+using TimeSheetCandidateTask.Domain.Models;
+using TimesheetCandidateTask.Shared.Contracts;
 
-namespace TimesheetCandidateTask.Api.Application;
+namespace TimesheetCandidateTask.Shared.Utils;
 
 public static class TimesheetCalculator
 {
     public static TimesheetTotalsResponse Calculate(TimesheetLine line)
     {
         var workedHours = line.Days
-            .Where(day => day.DayType is TimesheetDayType.Workday or TimesheetDayType.Holiday)
+            .Where(day => day.DayType is TimesheetDayType.Workday)
             .Sum(day => day.Hours);
         var holidayHours = line.Days
             .Where(day => day.DayType == TimesheetDayType.Holiday)

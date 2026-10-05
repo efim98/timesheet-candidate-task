@@ -1,4 +1,5 @@
-using TimesheetCandidateTask.Api.Domain;
+
+using TimeSheetCandidateTask.Domain.Models;
 
 namespace TimesheetCandidateTask.Api.Infrastructure;
 

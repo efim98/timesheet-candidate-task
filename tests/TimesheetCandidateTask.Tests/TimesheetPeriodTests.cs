@@ -1,11 +1,17 @@
-using TimesheetCandidateTask.Api.Application;
-using TimesheetCandidateTask.Api.Domain;
+using TimeSheetCandidateTask.Domain.Models;
+using TimesheetCandidateTask.Shared.Utils;
 using Xunit;
 
 namespace TimesheetCandidateTask.Tests;
 
+/// <summary>
+/// Проверяет базовые вычисления табеля: статус, суммарные часы и корректную передачу данных по дням и строкам.
+/// </summary>
 public sealed class TimesheetPeriodTests
 {
+    /// <summary>
+    /// Проверяет, что новый табель создаётся в черновике без строк.
+    /// </summary>
     [Fact]
     public void New_timesheet_starts_as_draft_with_no_lines()
     {
@@ -19,6 +25,9 @@ public sealed class TimesheetPeriodTests
         Assert.Empty(timesheet.Lines);
     }
 
+    /// <summary>
+    /// Проверяет корректный расчёт часов для обычного рабочего дня.
+    /// </summary>
     [Fact]
     public void Ordinary_workday_is_included_in_line_totals()
     {
@@ -37,6 +46,9 @@ public sealed class TimesheetPeriodTests
         Assert.Equal(8, totals.TotalHours);
     }
 
+    /// <summary>
+    /// Проверяет сохранение данных об отсутствии и комментарии для дня.
+    /// </summary>
     [Fact]
     public void Day_preserves_its_absence_details()
     {

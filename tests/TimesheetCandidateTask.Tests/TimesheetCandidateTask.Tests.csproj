@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
     <IsPackable>false</IsPackable>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -17,5 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\TimesheetCandidateTask.Api\TimesheetCandidateTask.Api.csproj" />
+    <ProjectReference Include="..\..\src\TimesheetCandidateTask.Wpf\TimesheetCandidateTask.Wpf.csproj" />
   </ItemGroup>
 </Project>
